@@ -1,0 +1,278 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  scroll-behavior: smooth;
+  background-color: aqua;
+}
+/* Nav section start */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /* background-color: transparent; */
+  background-color: purple;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  z-index: 100;
+  /* border: 2px solid yellow; */
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  /* width: 100%; */
+  background-color: transparent;
+  /* background-color: #0b0081; */
+  margin-right: 60px;
+  margin-left: 60px;
+  margin-top: 0px;
+  overflow-x: hidden;
+  position: sticky;
+  margin: 0;
+  top: 0;
+  bottom: 0;
+  height: auto;
+  z-index: 1000;
+  /* border: 2px solid yellow; */
+}
+
+.logo {
+  color: #fff;
+  font-size: 25px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.navbar i {
+  margin-right: 5px;
+}
+
+.nav-links {
+  display: flex;
+  margin-left: 50px;
+  margin-right: 290px;
+  /* border: 2px solid yellow; */
+}
+
+.nav-links li {
+  margin-right: 34px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  font-size: 18px;
+  align-items: center;
+  /* border: 2px solid yellow; */
+}
+
+.nav-links a:hover {
+  transition: all 0.3s ease 0s;
+  color: orangered;
+  cursor: pointer;
+}
+
+
+.btn-head {
+  display: inline-block;
+  margin: 6px;
+  padding: 8px 8px;
+  color: #fff;
+  font-size: 16px;
+  text-decoration: none;
+  border: 1px solid #fff;
+  border-radius: 2px;
+}
+
+/* Mobile Responsive Styles */
+
+@media only screen and (min-width: 640px) and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0;
+    padding: 16px;
+  }
+
+  .logo {
+    margin-bottom: 16px;
+  }
+
+  .nav-links {
+    margin-right: 0;
+  }
+
+  .nav-links li {
+    margin-bottom: 10px;
+  }
+}
+.body-section{
+  height: 150vh;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    margin-top: 90px;
+    padding: 20px;
+  }
+  
+form {
+    max-width: 350px;
+    width: 100%;
+}
+
+.signup-form {
+    display: grid;
+    /* text-align: justify; */
+    align-self: center;
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 4px;
+  }
+  
+  .signup-form h2 {
+    text-align: center;
+  }
+
+  span{
+    color: orangered;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"],input[type="email"], input[type="tel"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #f44336;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: rgb(255, 0, 0);
+  }
+  footer {
+  width: 100vw;
+  height: 3.5rem;
+  background-color: #0b0081;
+  padding: 10px;
+  color: #fff;
+  text-align: center;
+  align-items: center;
+  bottom: 0;
+  margin-top: auto;
+}
+
+.footer ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer li {
+  display: inline;
+  margin-right: 10px;
+}
+
+.footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-links.show {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    padding: 10px;
+  }
+
+  .nav-links li {
+    margin-bottom: 15px;
+  }
+
+  .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-links i {
+    margin-right: 10px;
+  }
+
+  .menu-toggle {
+    display: inline;
+  }
+
+  .buttons {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 15px;
+  }
+  /* Footer styles */
+  .footer {
+    padding: 10px;
+  }
+
+  .footer ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .footer li {
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+}
+  

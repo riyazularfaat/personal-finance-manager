@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block title %}View{% endblock %}
+{% block content %}
+    <nav>
+        <div class="navbar">
+            <a href="#" class="logo"><i class="fas fa-chart-line"></i> Expense Tracker</a>
+            <ul class="nav-links">
+                <li><a href="/home_page">Home</a></li>
+                <li><a href="/add">Add</a></li>
+                <li><a href="#">View</a></li>
+                <li><a href="/update">Update</a></li>
+                <li><a href="/search">Search</a></li>
+            </ul>
+            <div class="buttons">
+                <a href="/home" class="btn-head"><i class="fas fa-sign-in-alt"></i> Log Out</a>
+    
+            </div>
+        </div>
+    </nav>
+
+    <div class="content-box">
+        <h1>All Expenses</h1>
+        {% if expenses %}
+        <table border="1">
+            <tr>
+                <th>Date</th>
+                <th>Amount</th>
+                <th>Category</th>
+                <th>Description</th>
+            </tr>
+            {% for expense in expenses %}
+            <tr>
+                <td>{{ expense.date }}</td>
+                <td>{{ expense.amount }}</td>
+                <td>{{ expense.category }}</td>
+                <td>{{ expense.description }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+        <p>No expenses recorded.</p>
+        {% endif %}
+    </div>
+    <footer>
+        <div class="footer">
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="/support">Contact Us</a></li>
+            </ul>
+        </div>
+    </footer>
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+    <nav>
+        <div class="navbar">
+            <a href="#" class="logo"><i class="fas fa-chart-line"></i> Expense Tracker</a>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="/add">Add</a></li>
+                <li><a href="/view">View</a></li>
+                <li><a href="/update">Update</a></li>
+                <li><a href="/search">Search</a></li>            
+            </ul>
+            <div class="buttons">
+                <a href="/logout" class="btn-head"><i class="fas fa-sign-in-alt"></i> Log Out</a>
+            </div>
+        </div>
+    </nav>
+    
+    <section class="main-content" id="tracker" style="margin-top: 90px; padding-top:20px">   
+        <div class="head-text">
+            <h1>Access Your Personal Finance Tracker</h1>
+            <div class="under-head-text"></div>
+        </div>
+        <br />
+        <div class="user">
+            <h2>Name: {{ user.name }}</h2>
+            <h2>Email: {{ user.email }}</h2>
+        </div>
+        
+        <div class="tracker-part">
+            <div class="tracker-balance">
+                Current Balance: <span id="balance" class="current-balance"></span>
+            </div>
+        
+            <div class="currency-filter">
+                <div class="filter-left">
+                    <label for="currency">Select Currency:</label>
+                    <select id="currency" onchange="updateBalance()">
+                        <option value="USD">USD</option>
+                        <option value="EUR">EUR</option>
+                        <option value="BDT" selected>BDT</option>
+                    </select>
+                </div>
+                <div class="filter-right">
+                    <label for="text" class="date-box">Choose Date:</label>
+                    <input type="date" id="date" placeholder="Date" />
+                </div>
+            </div>
+        
+            <div class="transaction-form">
+                <input type="text" id="description" placeholder="Description" />
+                <input type="number" id="amount" placeholder="Amount" />
+                <button >Export</button>
+            </div>
+            <div class="table-part" id="table-part">
+                <table id="transaction-table">
+                    <tr>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Amount</th>
+                        <th>Type</th>
+                        <th>Action</th>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer">
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="/support">Contact Us</a></li>
+            </ul>
+        </div>
+    </footer>
+{% endblock %}

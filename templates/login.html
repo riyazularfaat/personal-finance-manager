@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+{% block content %}
+  <!-- <header class="header-part"> -->
+    <nav>
+      <div class="navbar">
+        <a href="#" class="logo"><i class="fas fa-chart-line"></i> Finance Tracker</a>
+        <ul class="nav-links">
+          <li><a href="/home">Home</a></li>
+          <li><a href="#how-it-works">How it works</a></li>
+          <li><a href="/support">Support</a></li>
+        </ul>
+        <div class="buttons">
+          
+          <a href="/sign_up" class="btn-head"><i class="fas fa-user-plus"></i> Sign Up</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="content-box">
+      {% if error %}
+        <p class="error">{{ error }}</p>
+      {% endif %}
+        <form class="login-form" action="/login" method="post">
+          <h2>Login</h2>
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+          </div>
+          <div class="form-group">
+            <a href="/forgot-password">Forgot Password?</a>
+          </div>
+          <button type="submit">Login</button>
+        </form>
+      </div>
+
+  <footer>
+    <div class="footer">
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="/support">Contact Us</a></li>
+      </ul>
+    </div>
+  </footer>
+  <script>feather.replace();</script>
+  <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+{% endblock %}
