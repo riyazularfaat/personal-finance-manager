@@ -7,13 +7,12 @@
             <ul class="nav-links">
                 <li><a href="/home_page">Home</a></li>
                 <li><a href="/add">Add</a></li>
-                <li><a href="#">View</a></li>
-                <li><a href="/update">Update</a></li>
+                <li><a href="/view">View</a></li>
+                <li><a href="/delete">Delete</a></li>
                 <li><a href="/search">Search</a></li>
             </ul>
             <div class="buttons">
                 <a href="/home" class="btn-head"><i class="fas fa-sign-in-alt"></i> Log Out</a>
-    
             </div>
         </div>
     </nav>
@@ -21,24 +20,30 @@
     <div class="content-box">
         <h1>All Expenses</h1>
         {% if expenses %}
-        <table border="1">
-            <tr>
-                <th>Date</th>
-                <th>Amount</th>
-                <th>Category</th>
-                <th>Description</th>
-            </tr>
+        <table class="view-table">
+            <thead class="view-table-hd">
+                <tr >
+                    <th>Date</th>
+                    <th>Amount</th>
+                    <th>Category</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            
             {% for expense in expenses %}
-            <tr>
-                <td>{{ expense.date }}</td>
-                <td>{{ expense.amount }}</td>
-                <td>{{ expense.category }}</td>
-                <td>{{ expense.description }}</td>
-            </tr>
+            <tbody class="view-table-bd">
+                <tr>
+                    <td>{{ expense.date }}</td>
+                    <td>{{ expense.amount }}</td>
+                    <td>{{ expense.category }}</td>
+                    <td>{{ expense.description }}</td>
+                </tr>
+            </tbody>
+            
             {% endfor %}
         </table>
         {% else %}
-        <p>No expenses recorded.</p>
+        <p>No expenses found.</p>
         {% endif %}
     </div>
     <footer>

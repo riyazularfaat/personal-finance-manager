@@ -229,7 +229,7 @@ img {
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
-  height: 80vh;
+  height: auto;
   padding: 20px;
   color: white;
   flex-direction: row;
@@ -245,108 +245,6 @@ img {
   margin-left: 48%;
   margin-top: 10px;
   background-color: #f4ff61;
-}
-
-.tracker-part {
-  width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-  margin-top: 2px;
-  border: 2px solid rgb(248, 248, 248);
-  border-radius: 6px 6px 6px 6px;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0px;
-  box-sizing: border-box;
-  overflow-y: auto; /* Enable vertical scrollbar */
-}
-
-.tracker-h1 {
-  text-align: center;
-}
-
-.tracker-balance {
-  text-align: center;
-  font-size: 24px;
-  margin-bottom: 20px;
-  font-weight: bolder;
-  color: #0b0081;
-  background-color: #dde8ff;
-  padding: 12px;
-}
-
-.current-balance {
-  font-size: 24px;
-  font-weight: bold;
-}
-.negative-balance {
-  color: #ff0000; /* Red color */
-}
-.positive-balance {
-  color: #00ff00; /* Green color */
-}
-
-.transaction-form {
-  display: flex;
-  justify-content: center;
-  align-items: center; /* Added align-items property */
-  margin-bottom: 20px;
-}
-
-.transaction-form input[type="text"],
-.transaction-form input[type="number"],
-.transaction-form select,
-.transaction-form input[type="date"] {
-  /* Added input[type="date"] selector */
-  margin-right: 10px;
-  padding: 5px;
-  font-size: 16px;
-  border-radius: 3px;
-  color: #0b0081;
-  border: 1px solid #0b0081;
-}
-
-.transaction-form button {
-  padding: 5px 10px;
-  font-size: 16px;
-  border-radius: 10px;
-  margin-left: 8px;
-  height: 39px;
-  border: 1px solid #18ad1d;
-  background-color: #18ad1d;
-  color: #fff;
-  /* border: none; */
-  cursor: pointer;
-}
-
-.currency-filter {
-  padding: 5px 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-  gap: 180px;
-  flex: 1;
-}
-
-#currency {
-  padding: 5px 10px;
-  font-size: 16px;
-  border-radius: 3px;
-  background-color: #ffffff;
-  color: #0b0081;
-  border: 1px solid #ccc;
-  cursor: pointer;
-}
-
-#currency:hover {
-  background-color: #f0f0f0;
-}
-
-#currency:focus {
-  outline: none;
-  box-shadow: 0 0 2px 2px rgba(0, 123, 255, 0.3);
 }
 
 .date-box {
@@ -366,25 +264,25 @@ img {
   float: right;
 }
 
-.table-part {
+/* .table-part {
   overflow: hidden;
-}
+} */
 
-table {
+/* table {
   width: 100%;
   border-collapse: collapse;
-  background-color: white;
-}
+  background-color: #28a7464b;
+} */
 
 .table-part.scrollable {
   max-height: calc(4 * 40px); /* Adjust the height based on your row height */
   overflow-y: scroll;
 }
 
-th {
+/* th {
   font-weight: bolder;
   border-spacing: 0px;
-  color: #0b0081;
+  color: black;
   padding: 10px;
   min-width: none;
   position: sticky;
@@ -393,12 +291,12 @@ th {
   background-color: #dde8ff;
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
-  border-right: 1px solid #ddd; /* Add this line to create column lines */
-}
+  border-right: 1px solid #ddd; /* Add this line to create column lines 
+}*/
 td {
   padding: 10px;
   text-align: left;
-  color: #0b0081;
+  color: white;
   min-width: none;
   font-weight: lighter;
   border-top: 1px solid #ddd;
@@ -409,7 +307,7 @@ td {
 th:last-child,
 td:last-child {
   border-right: none; /* Remove the right border for the last column */
-}
+} */
 
 .delete-button {
   background-color: #f44336;

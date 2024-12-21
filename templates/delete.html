@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+<nav>
+    <div class="navbar">
+        <a href="#" class="logo"><i class="fas fa-chart-line"></i> Expense Tracker</a>
+        <ul class="nav-links">
+            <li><a href="/home_page">Home</a></li>
+            <li><a href="/add">Add</a></li>
+            <li><a href="/view">View</a></li>
+            <li><a href="/delete">Delete</a></li>
+            <li><a href="/search">Search</a></li>
+        </ul>
+        <div class="buttons">
+            <a href="/home" class="btn-head"><i class="fas fa-sign-in-alt"></i> Log Out</a>
+
+        </div>
+    </div>_
+</nav>
+
+<div class="content-box">
+    <h1>Delete Expense</h1>
+    
+    <form action="/delete" method="post">
+        <label for="search_type">Delete by:</label>
+        <select id="search_type" name="search_type" required>
+            <option value="date">Date</option>
+            <option value="category">Category</option>
+        </select><br>
+
+        <label for="search_term">Search Term:</label>
+        <input type="text" id="search_term" name="search_term" required><br>
+
+        <button type="submit">Delete</button>
+    </form>
+</div>
+<footer>
+    <div class="footer">
+        <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="/support">Contact Us</a></li>
+        </ul>
+    </div>
+</footer>
+{% endblock %}

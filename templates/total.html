@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+<nav>
+    <div class="navbar">
+        <a href="#" class="logo"><i class="fas fa-chart-line"></i> Expense Tracker</a>
+        <ul class="nav-links">
+            <li><a href="/home">Home</a></li>
+            <li><a href="/add">Add</a></li>
+            <li><a href="/view">View</a></li>
+            <li><a href="/delete">Delete</a></li>
+            <li><a href="/search">Search</a></li>
+        </ul>
+        <div class="buttons">
+            <a href="/logout" class="btn-head"><i class="fas fa-sign-in-alt"></i> Log Out</a>
+        </div>
+    </div>
+</nav>
+<div class="ttl-content-box">
+    <h1>Calculate Total Expenses</h1>
+
+    <!-- Display the calculation form -->
+    <form action="/total" method="post">
+        <label for="start_date">Start Date:</label>
+        <input type="date" id="start_date" name="start_date" required><br>
+
+        <label for="end_date">End Date:</label>
+        <input type="date" id="end_date" name="end_date" required><br>
+
+        <button type="submit">Calculate</button>
+    </form>
+
+    {% if total %}
+    <h2>Total Expenses: {{ total }}</h2>
+
+    <!-- Only show the table if expenses exist for the calculated range -->
+    {% if expenses %}
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Category</th>
+            <th>Description</th>
+        </tr>
+        {% for expense in expenses %}
+        <tr>
+            <td>{{ expense.date }}</td>
+            <td>{{ expense.amount }}</td>
+            <td>{{ expense.category }}</td>
+            <td>{{ expense.description }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>No expenses found for this date range.</p>
+    {% endif %}
+    {% endif %}
+</div>
+<footer>
+    <div class="footer">
+        <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="/support">Contact Us</a></li>
+        </ul>
+    </div>
+</footer>
+{% endblock %}
