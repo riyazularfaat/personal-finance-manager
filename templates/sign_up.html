@@ -17,6 +17,9 @@
     </nav>
     <section class="body-section">
       <div class="content-box">
+        {% if message %}
+          <p class="error">{{ message }}</p>
+        {% endif %}
         <form class="signup-form" action="/sign_up" method="post">
           <h2>Sign Up</h2>
           <div class="form-group">

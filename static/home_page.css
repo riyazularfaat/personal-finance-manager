@@ -90,3 +90,20 @@ body {
     justify-content: center;
     align-items: center;
 }
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+.buttons button {
+    background-color: rgb(4, 69, 23);
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    align-items: center;
+    gap: 10px;
+
+}

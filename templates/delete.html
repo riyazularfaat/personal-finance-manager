@@ -8,7 +8,7 @@
             <li><a href="/add">Add</a></li>
             <li><a href="/view">View</a></li>
             <li><a href="/delete">Delete</a></li>
-            <li><a href="/search">Search</a></li>
+            <li><a href="/update">Update</a></li>
         </ul>
         <div class="buttons">
             <a href="/home" class="btn-head"><i class="fas fa-sign-in-alt"></i> Log Out</a>
@@ -18,20 +18,35 @@
 </nav>
 
 <div class="content-box">
-    <h1>Delete Expense</h1>
+    <h1>Delete Record</h1>
+    <form id="deleteForm" method="POST" action="/delete">
+        <!-- Type Selector (Income or Expense) -->
+        <label for="record_type">Record Type:</label>
+        <select id="record_type" name="record_type" required>
+            <option value="Income">Income</option>
+            <option value="Expense">Expense</option>
+        </select>
     
-    <form action="/delete" method="post">
-        <label for="search_type">Delete by:</label>
+        <!-- Search Type Dropdown -->
+        <label for="search_type">Search by:</label>
         <select id="search_type" name="search_type" required>
             <option value="date">Date</option>
             <option value="category">Category</option>
-        </select><br>
-
+        </select>
+    
+        <!-- Search Term Input -->
         <label for="search_term">Search Term:</label>
-        <input type="text" id="search_term" name="search_term" required><br>
-
-        <button type="submit">Delete</button>
+        <input type="text" id="search_term" name="search_term" placeholder="Enter search term" required>
+    
+        <!-- Submit Button -->
+        <button type="submit">Delete Record</button>
     </form>
+    <!-- Message Display -->
+    {% if message %}
+    <div class="message">
+        {{ message }}
+    </div>
+    {% endif %}
 </div>
 <footer>
     <div class="footer">

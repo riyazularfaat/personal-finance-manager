@@ -9,7 +9,7 @@
                 <li><a href="#">Add</a></li>
                 <li><a href="/view">View</a></li>
                 <li><a href="/delete">Delete</a></li>
-                <li><a href="/search">Search</a></li>            
+                <li><a href="/update">Update</a></li>
             </ul>
             <div class="buttons">
                 <a href="/home" class="btn-head"><i class="fas fa-sign-in-alt"></i> Log Out</a>
@@ -19,24 +19,42 @@
     </nav>
 
     <div class="content-box">
-        <h1>Add Expense</h1>
-        <form action="/add" method="post">
-            <label for="date">Date:</label>
-            <input type="date" id="date" name="date" required><br>
-
-            <label for="amount">Amount:</label>
-            <input type="number" id="amount" name="amount" required><br>
-
-            <label for="category">Category:</label>
-            <input type="text" id="category" name="category" required><br>
-
-            <label for="description">Description:</label>
-            <input type="text" id="description" name="description" required><br>
-
-            <button type="submit">Add Expense</button>
-        </form>
+        <h1>Add Income or Expense</h1>
+        <div class="buttons">
+            <button id="showIncome">Income</button>
+            <button id="showExpense">Expense</button>
+        </div>
+        <div id="incomeForm" class="form-container active">
+            <h2>Income Form</h2>
+            <form action="/add_income" method="POST">
+                <label for="incomeDate">Date:</label>
+                <input type="date" id="incomeDate" name="date" required><br>
+                <label for="incomeAmount">Amount:</label>
+                <input type="number" id="incomeAmount" name="amount" required>
+                <label for="incomeCategory">Category:</label>
+                <input type="text" id="incomeCategory" name="category" required><br>
+                <label for="incomeDescription">Description:</label>
+                <input type="text" id="incomeDescription" name="description" required><br>
+                <button type="submit">Add Income</button>
+            </form>
+        </div>
+    
+        <div id="expenseForm" class="form-container">
+            <h2>Expense Form</h2>
+            <form action="/add_expense" method="POST">
+                <label for="expenseDate">Date:</label>
+                <input type="date" id="expenseDate" name="date" required><br>
+                <label for="expenseAmount">Amount:</label>
+                <input type="number" id="expenseAmount" name="amount" required>
+                <label for="expenseCategory">Category:</label>
+                <input type="text" id="expenseCategory" name="category" required><br>
+                <label for="expenseDescription">Description:</label>
+                <input type="text" id="expenseDescription" name="description" required><br>
+                <button type="submit">Add Expense</button>
+            </form>
+        </div>
     </div>
-
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
     <footer>
         <div class="footer">
             <ul>
@@ -46,5 +64,5 @@
             </ul>
         </div>
     </footer>
-
+    
 {% endblock %}

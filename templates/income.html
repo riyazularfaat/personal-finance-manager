@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block title %}Add expense{% endblock %}
+{% block content %}
+    <nav>
+        <div class="navbar">
+            <a href="#" class="logo"><i class="fas fa-chart-line"></i> Expense Tracker</a>
+            <ul class="nav-links">
+                <li><a href="/home_page">Home</a></li>
+                <li><a href="#">Add</a></li>
+                <li><a href="/view">View</a></li>
+                <li><a href="/delete">Delete</a></li>
+                <li><a href="/update">Update</a></li>
+            </ul>
+            <div class="buttons">
+                <a href="/home" class="btn-head"><i class="fas fa-sign-in-alt"></i> Log Out</a>
+
+            </div>
+        </div>_
+    </nav>
+
+    <div class="content-box">
+        <h1>Add Income</h1>
+        <form action="/income" method="post">
+            <div class="swap_option">
+                <div class="expense_option">
+                    <a href="./add.html">Expense</a>
+                </div>
+                <div class="income_option">
+                    <a href="#"> Income</a>
+                </div>
+            </div>
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required><br>
+
+            <label for="amount">Amount:</label>
+            <input type="number" id="amount" name="amount" required><br>
+
+            <label for="category">Category:</label>
+            <input type="text" id="category" name="category" required><br>
+
+            <label for="description">Description:</label>
+            <input type="text" id="description" name="description" required><br>
+
+            <button type="submit">Add Income</button>
+        </form>
+    </div>
+
+    <footer>
+        <div class="footer">
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="/support">Contact Us</a></li>
+            </ul>
+        </div>
+    </footer>
+
+{% endblock %}

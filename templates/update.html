@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% block title %}Search{% endblock %}
+{% block content %}
+    <nav>
+        <div class="navbar">
+            <a href="#" class="logo"><i class="fas fa-chart-line"></i> Expense Tracker</a>
+            <ul class="nav-links">
+                <li><a href="/home_page">Home</a></li>
+                <li><a href="/add">Add</a></li>
+                <li><a href="/view">View</a></li>
+                <li><a href="/delete">Delete</a></li>
+                <li><a href="/update">Update</a></li>
+            </ul>
+            <div class="buttons">
+                <a href="/home" class="btn-head"><i class="fas fa-sign-in-alt"></i> Log Out</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="content-box">
+        <h1>Update Records</h1>
+        
+        <!-- Display success or error messages -->
+        {% if error %}
+        <div class="error-message">
+            <p>{{ error }}</p>
+        </div>
+        {% endif %}
+        {% if success %}
+        <div class="success-message">
+            <p>{{ success }}</p>
+        </div>
+        {% endif %}
+        
+        <!-- Update Form -->
+        <form action="/update" method="POST">
+            <label for="record_type">Record Type:</label>
+            <select name="record_type" id="record_type" required>
+                <option value="" disabled selected>Select record type</option>
+                <option value="income">Income</option>
+                <option value="expense">Expense</option>
+            </select>
+        
+            <label for="record_id">Record ID:</label>
+            <select name="record_id" id="record_id" required>
+                <option value="" disabled selected>Select record ID</option>
+                {% for record in records %}
+                <option value="{{ record.id }}">{{ record.type.capitalize() }} {{ record.id }}</option>
+                {% endfor %}
+            </select>
+        
+            <label for="column">Column to Update:</label>
+            <select name="column" id="column" required>
+                <option value="" disabled selected>Select column</option>
+                <option value="amount">Amount</option>
+                <option value="description">Description</option>
+                <option value="category">Category</option>
+                <option value="date">Date</option>
+            </select>
+        
+            <label for="value">New Value:</label>
+            <input type="text" name="value" id="value" placeholder="Enter new value" required>
+        
+            <button type="submit">Update Record</button>
+        </form>
+        
+        <!-- Display All Records -->
+        <h2>All Records</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>ID</th>
+                    <th>Amount</th>
+                    <th>Description</th>
+                    <th>Category</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for record in records %}
+                <tr>
+                    <td>{{ record.type }}</td>
+                    <td>{{ record.id }}</td>
+                    <td>{{ record.amount }}</td>
+                    <td>{{ record.description }}</td>
+                    <td>{{ record.category }}</td>
+                    <td>{{ record.date }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+
+        <footer>
+            <div class="footer">
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="/support">Contact Us</a></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+    
+{% endblock %}

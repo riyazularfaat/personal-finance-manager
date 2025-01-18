@@ -9,7 +9,7 @@
                 <li><a href="/add">Add</a></li>
                 <li><a href="/view">View</a></li>
                 <li><a href="/delete">Delete</a></li>
-                <li><a href="/search">Search</a></li>
+                <li><a href="/update">Update</a></li>
             </ul>
             <div class="buttons">
                 <a href="/home" class="btn-head"><i class="fas fa-sign-in-alt"></i> Log Out</a>
@@ -18,11 +18,25 @@
     </nav>
 
     <div class="content-box">
-        <h1>All Expenses</h1>
+        <div>
+            <h2>View Records</h2>
+            
+            <form action="/view" method="POST" class="view-form">
+                <label for="viewType">Type:</label>
+                <select id="viewType" name="type">
+                    <option value="" default>Select</option>
+                    <option value="income">Income</option>
+                    <option value="expense">Expense</option>
+                </select><br>
+                <button type="submit">View Records</button>
+            </form>
+        </div>
+        
         {% if expenses %}
         <table class="view-table">
             <thead class="view-table-hd">
                 <tr >
+                    <th>ID</th>
                     <th>Date</th>
                     <th>Amount</th>
                     <th>Category</th>
@@ -33,10 +47,11 @@
             {% for expense in expenses %}
             <tbody class="view-table-bd">
                 <tr>
-                    <td>{{ expense.date }}</td>
+                    <td>{{ expense.exp_id or expense.inc_id}}</td>
+                    <td>{{ expense.date}}</td>
                     <td>{{ expense.amount }}</td>
                     <td>{{ expense.category }}</td>
-                    <td>{{ expense.description }}</td>
+                    <td>{{ expense.description}}</td>
                 </tr>
             </tbody>
             
